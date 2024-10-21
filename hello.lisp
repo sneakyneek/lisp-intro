@@ -69,3 +69,36 @@
 ((not (oddp x)) (+ x 1))))
 
 ; Above exercise is 4.9 everything above is a random assortment of those exercises
+
+(defun constrain-410 (x max min)
+    (cond ((> min x) min)
+          ((> x max) max)
+          (t x)))
+
+(defun constrain-410b (x max min)
+    (if (> x max) max (if (> min x) min x)))
+
+(defun firstzero-411 (x)
+    (cond ((zerop (first x)) 'first)
+          ((zerop (second x)) 'second)
+          (t 'third)))
+
+(defun cycle-412 (x)
+    (cond ((equal x 99) 1)
+          (t (+ x 1))))
+
+(defun howcompute-413 (x y z)
+    (cond ((equal z (+ x y)) 'product-of)
+          (t 'beatsme))) ;etc etc
+
+(defun geq-415 (x y)
+    (or (> x y) (equal x y)))
+
+(defun square-416 (x)
+    (or (and (oddp x) (> x 0) (* x x))
+        (and (oddp x) (< x 0) (* 2 x))
+        (and (/ x 2))))
+
+(defun gen-417 (x y)
+    (cond ((and (or (equal x 'boy) (equal x 'girl)) (equal y 'child)) t)
+          ((and (or (equal x 'man) (equal x 'women)) (equal y 'adult)) t)))
