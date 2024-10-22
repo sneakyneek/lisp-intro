@@ -102,3 +102,41 @@
 (defun gen-417 (x y)
     (cond ((and (or (equal x 'boy) (equal x 'girl)) (equal y 'child)) t)
           ((and (or (equal x 'man) (equal x 'women)) (equal y 'adult)) t)))
+
+(defun cond-419 (x y z w)
+    (cond ((not  x) nil) ;not x should verify that not nil?
+          ((not  y) nil)
+          ((not z) nil)
+          (t w))) ;either w is truthy so return w and if its nil will still return nil
+
+(defun nestedif-419 (x y z w)
+    (if x (if y (if z w))))
+
+(defun compare-420 (x y)
+    (if (< x y) 'xsmaller 
+        (if (> x y) 'xlarger 'numequal)))
+
+(defun compare-420b (x y)
+    (or (and (equal x y) 'numequal)
+        (and (< x y) 'xsmaller)
+        (and (> x y) 'xlarger)))
+
+(defun gtest-421 (x y)
+    (if (> x y) t 
+        (if (zerop x) t (zerop y))))
+
+(defun gtest-421b (x y)
+    (cond ((> x y) t)
+          ((zerop x) t)
+          (t (zerop y))))
+
+(defun boilingp-422 (temp scale)
+    (cond ((equal scale 'CELSIUS) (> temp 100))
+          ((equal scale 'FARENHEIT) (> temp 212))))
+
+(defun boilingp-422b (temp scale)
+    (or (and (equal scale 'CELSIUS) 
+             (> temp 100))
+        (and (equal scale 'FARENHEIT) 
+             (> temp 212))))
+
