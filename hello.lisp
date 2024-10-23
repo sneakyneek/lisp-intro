@@ -140,3 +140,80 @@
         (and (equal scale 'FARENHEIT) 
              (> temp 212))))
 
+(defun logand-429 (x y)
+    (if (not x) nil (if (not y) nil t)))
+
+(defun logand-429smarter (x y)
+    (if x (if y t)))
+
+(defun logand-429b (x y)
+    (cond ((not x) nil)
+          ((not y) nil)
+          (t t)))
+
+(defun logand-429bsmarter (x y)
+    (cond (x (cond (y t)))))
+
+(defun logor-430 (x y)
+    (or x y))
+
+(defun logor-430cond (x y)
+    (cond (x t)
+          (y t)
+          (t nil)))
+
+;skipping to 435
+
+;435: (and x y z) => (not (or (not x) (not y) (not z)))
+;     (or x y z) => (not (and (not x) (not y) (not z)))
+
+;skipping to 5 
+
+;(defun poor-style (p)
+;(setf p (+ p 5))
+;(list ’result ’is p))
+
+(defun poor-51 (p)
+    (let ((q (+ 5 p)))
+        (list 'result 'is q)))
+
+;;; rolls a die
+(defun throw-56 ()
+    + 1 (random 6))
+
+(defun throwtwo-56 ()
+    (list (throw-56) (+ 1 (throw-56))))
+
+(defun snakep-56 (x)
+    (and (equal 1 (first x)) (equal 1 (second x))))
+
+(defun snakep-56smart (x)
+    (equal x (list 1 1)))
+
+;;;T if throw is boxcar else nil
+(defun boxp-56 (x)
+    (and (equal 6 (first x)) (equal 6 (second x))))
+
+(defun winp-56 (throw)
+    (cond ((equal (+ (first throw) (second throw)) 7) t)
+          ((equal (+ (first throw) (second throw)) 11) t)
+          (t nil)))
+
+(defun losep-56 (throw)
+    (cond ((equal (+ (first throw) (second throw)) 2) t)
+          ((equal (+ (first throw) (second throw)) 3) t)
+          ((equal (+ (first throw) (second throw)) 12) t)
+          (t nil)))
+
+(defun trowval-56 (throw)
+    (+ (first throw) (second throw)))
+
+(defun losep-56b (throw)
+    (member (trowval-56 throw) '(2 3 12)))
+
+(defun saythrow-56 (throw)
+    (cond ((snakep-56 throw) 'sneakysnek)
+          ((boxp-56 throw) 'box)
+          (t (trowval-56 throw))))
+
+
