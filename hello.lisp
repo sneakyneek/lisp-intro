@@ -217,3 +217,42 @@
           (t (trowval-56 throw))))
 
 
+(defun craps-56 ()
+    (let ((mathrow (throwtwo-56)))
+        (append 
+            (list 'you 'threw (saythrow-56 mathrow))
+            (cond ((winp-56 mathrow) 'youwin)
+              ((losep-56 mathrow) 'youlose)
+              (t (list 'your 'point 'is (trowval-56 mathrow)))))))
+
+;end of 5 remember in common lisp variables get bound not symbols
+;(setf line '(roses are red))
+
+(defun line-65 ()
+    ;(reverse line))
+    (first (last line)))
+
+(defun lastel-66 (x)
+    (car (last x)))
+
+(defun lastel-66b (x)
+    (car (reverse x)))
+
+(defun nexlast-67 (x)
+    (cadr (reverse x)))
+
+(defun nexlas-67b (x)
+    (and (rest x)
+         (nth (- (length x) 2) x)))
+
+(defun mybl-68 (x)
+    (remove (car (last x)) x))
+
+(defun mybl-68b (x)
+    (reverse (rest (reverse x))))
+
+(defun palp-610 (x)
+    (equal x (reverse x)))
+
+(defun map-611 (x)
+    (append x (reverse x)))
