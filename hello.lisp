@@ -256,3 +256,23 @@
 
 (defun map-611 (x)
     (append x (reverse x)))
+
+;;;613-614
+(intersection '(1 2 3) nil)
+(intersection '(1 2 3) '(1 2 3))
+
+;615 
+(defun artp-615 (x)
+    (intersection (list 'an 'the 'a) x))
+
+(defun artp-615b (x)
+    (or (member 'an x) (member 'the x) (member 'a x)))
+
+(defun artp-615c (x)
+    (not (and (not (member 'an x)) (not (member 'the x)) (not (member 'a x)))))
+
+(defun vowel-617 (x)
+    (union x '(a e i o u)))
+
+(defun subsp-621 (x y)
+    (equal nil (set-difference x y)))
