@@ -275,4 +275,26 @@
     (union x '(a e i o u)))
 
 (defun subsp-621 (x y)
-    (equal nil (set-difference x y)))
+    (equal nil (set-difference x y))) ;Can use null here instead which tests for nillnes
+
+(defun setequal-624 (x y)
+    (and (subsetp x y) (subsetp y x)))
+
+(defun propersub-625 (x y)
+    (and (subsetp x y)(not (subsetp y x))))
+
+(defun right-626 (x)
+    (rest (member '-vs- x)))
+
+(defun left-626(x)
+    (rest (member '-vs- (reverse x))))
+
+(defun compare-626 (x)
+    (list (length(intersection (left-626 x) (right-626 x))) 'common 'features))
+
+;6.28
+(setf produce 
+    '((celery . veggie)
+      (banana . fruit)
+      (lettuce . veggie)
+      (apple . fruit)))
